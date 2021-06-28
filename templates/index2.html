@@ -182,7 +182,7 @@
 					</form>
 				</div>
 				<div class="res-container  col-md-6 col-xs-12">
-					<div class="result-box shadow rounded-lg">
+					<div class="result-box shadow rounded-lg" id="results">
 						<h6 class="title">Results</h6>
 						<div class="json-result">
 							
@@ -198,6 +198,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<!--	<script>-->
 	<script>
 		$(document).ready(function(){
 			$('#loading').hide();
@@ -239,12 +240,22 @@
 								$(".json-result").html("");
 								$(".json-result").html("<p>" + JSON.stringify(response.Result,true,2) + "</p>");
 								$('#loading').hide();
+
 							}
 						});
 					});
 				}
 			});
 		});
+	</script>
+</body>
+<script>
+		let tag = document.getElementById('results')
+		tag.style.display = 'none'
+		input = document.getElementById('fetch')
+		input.addEventListener("click",function(){
+			tag.style.display = 'block'
+		})
 	</script>
 </body>
 
